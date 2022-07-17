@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>Add New Persons</h1>
+<div mat-dialog-content>
+    <form [formGroup]="options">
+        <mat-form-field appearance="legacy">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="name" type="text" formControlName="name" name="name">
+            <mat-hint align="end">{{name.value?.length || 0}}/50</mat-hint>
+            <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Age</mat-label>
+            <input matInput placeholder="age" type="number" formControlName="age" name="age">
+            <span matSuffix>year</span>
+            <mat-error *ngIf="age.invalid">{{getAgeErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Birthdate</mat-label>
+            <input matInput [matDatepicker]="birthdate" formControlName="birthdate" name="birthdate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="birthdate"></mat-datepicker-toggle>
+            <mat-datepicker #birthdate></mat-datepicker>
+        </mat-form-field>
+
+        <div style="display:inline">
+            <mat-label>Gender:</mat-label>
+            <mat-radio-group name="gender" formControlName="gender">
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="gender.invalid">{{getGenderErrorMessage()}}</mat-error>
+        </div>
+    </form>
+    <div *ngIf="invalid" class="error">
+        there are some error on form
+    </div>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>close</button>
+    <button mat-button (click)="submitForm()" cdkFocusInitial>add</button>
+</div>

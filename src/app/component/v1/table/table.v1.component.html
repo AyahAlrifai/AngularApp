@@ -1,0 +1,18 @@
+<tr class="gray">
+    <th>Name</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Delete</th>
+</tr>
+<tr>
+    <td>{{ name }}</td>
+    <td>{{ age }}</td>
+    <td>{{ gender }}</td>
+   
+    <td>
+        <button mat-icon-button color="warn" (click)="onDeletePerson()">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </td>
+</tr>
+<br>

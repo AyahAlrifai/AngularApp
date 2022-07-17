@@ -1,0 +1,115 @@
+
+
+<mat-accordion class="example-headers-align" #FirstAccordion>
+  
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+   
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        first panel
+      </mat-panel-title>
+      <mat-panel-description>
+        panel 1
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div>hello in first panel</div>
+
+    <mat-action-row>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        second panel
+      </mat-panel-title>
+      <mat-panel-description>
+        panel 2
+        <mat-icon>map</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div>hello in second panel</div>
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        third panel
+      </mat-panel-title>
+      <mat-panel-description>
+        panel 3
+        <mat-icon>date_range</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div>hello in third panel</div>
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">End</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+</mat-accordion>
+<br><br>
+<div class="example-action-buttons">
+  <button mat-flat-button color="accent" (click)="accordion.openAll()">Expand All</button>
+  <button mat-flat-button color="accent" (click)="accordion.closeAll()">Collapse All</button>
+</div>
+<mat-accordion class="example-headers-align" #SecondAccordion="matAccordion" multi>
+  
+  <mat-expansion-panel>
+   
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        first panel
+      </mat-panel-title>
+      <mat-panel-description>
+        panel 1
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div>hello in first panel</div>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        second panel
+      </mat-panel-title>
+      <mat-panel-description>
+        panel 2
+        <mat-icon>map</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div>hello in second panel</div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        third panel
+      </mat-panel-title>
+      <mat-panel-description>
+        panel 3
+        <mat-icon>date_range</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div>hello in third panel</div>
+  </mat-expansion-panel>
+
+</mat-accordion>

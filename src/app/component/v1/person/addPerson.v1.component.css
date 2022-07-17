@@ -1,0 +1,36 @@
+* {
+  margin: 5px;
+}
+table,
+th,
+td {
+  border: 1px solid;
+  text-align: center;
+}
+
+.delete {
+  color: #ff0000;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+td,
+th {
+  padding: 6px;
+}
+
+.flex {
+  border: 1px #000000 solid;
+  display: flex;
+  justify-content:space-evenly;
+  justify-items: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  padding: 10px;
+}
+
+.label {
+  width: 100%;
+  text-align: center;
+  font-weight: bolder;
+}

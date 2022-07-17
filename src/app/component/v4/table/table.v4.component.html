@@ -1,0 +1,51 @@
+<div>
+    <div class="tableTitle">
+        Persons Info
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr class="gray" *ngIf="showDeleteColumn">
+                    <th style="width:10%"></th>
+                    <th style="width:30%">Name</th>
+                    <th style="width:10%">Age</th>
+                    <th style="width:30%">Birthdate MM/DD/YYYY</th>
+                    <th style="width:10%">Gender</th>
+                    <th style="width:10%">Delete</th>
+                </tr>
+                <tr class="gray" *ngIf="!showDeleteColumn">
+                    <th style="width:10%"></th>
+                    <th style="width:30%">Name</th>
+                    <th style="width:15%">Age</th>
+                    <th style="width:30%">Birthdate MM/DD/YYYY</th>
+                    <th style="width:15%">Gender</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="showDeleteColumn">
+                <tr *ngFor="let person of  appService.getPersons().slice(pageEvent.pageIndex*pageEvent.pageSize,(pageEvent.pageIndex+1)*pageEvent.pageSize);let i = index">
+                    <td style="width:10%">{{ pageEvent.pageIndex*pageEvent.pageSize+i+1 }}</td>
+                    <td style="width:30%">{{ person.name }}</td>
+                    <td style="width:10%">{{ person.age }} year</td>
+                    <th style="width:30%">{{ person.birthdate }}</th>
+                    <td style="width:10%">{{ person.gender }}</td>
+                    <td style="width:10%">
+                        <button mat-icon-button (click)="onDeletePerson(i)" color="warn">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="!showDeleteColumn">
+                <tr *ngFor="let person of  appService.getPersons().slice(pageEvent.pageIndex*pageEvent.pageSize,(pageEvent.pageIndex+1)*pageEvent.pageSize);let i = index">
+                    <td style="width:10%">{{ pageEvent.pageIndex*pageEvent.pageSize+i+1 }}</td>
+                    <td style="width:30%">{{ person.name }}</td>
+                    <td style="width:15%">{{ person.age }} year</td>
+                    <th style="width:30%">{{ person.birthdate }}</th>
+                    <td style="width:15%">{{ person.gender }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <mat-paginator (page)="changePage()" [length]="appService.getPersons().length" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" #pageEvent aria-label="Select page">
+    </mat-paginator>
+</div>

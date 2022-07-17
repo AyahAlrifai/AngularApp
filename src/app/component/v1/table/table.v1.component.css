@@ -1,0 +1,25 @@
+table,
+th,
+td {
+  border: 1px solid;
+  text-align: center;
+}
+
+.delete {
+  color: #ff0000;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+td,
+th {
+  padding: 6px;
+}
+
+.gray {
+  background-color: #aaaaaa;
+}
+
+.white {
+  background-color: #ffffff;
+}

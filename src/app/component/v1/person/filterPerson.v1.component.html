@@ -1,0 +1,21 @@
+<div>
+  <div *ngIf="!isEmpty()">
+    <div class="label">Filter by</div>
+    <form (ngSubmit)="onFilterPersons(f)" #f="ngForm">
+      <span>Name:</span><input type="text" name="name" ngModel/>
+      <span>Age:</span><input type="number" name ="age" ngModel/>
+      <span>Gender:</span>
+      <input type="radio" name="gender" value="" ngModel/><span>All</span>
+      <input type="radio" name="gender" value="Male" ngModel/><span>Male</span>
+      <input type="radio" name="gender" value="Female" ngModel/><span>Female</span>
+      <button  type="submit" mat-flat-button color="accent">filter</button>
+      <button  type="reset" (click)="onResetForm()" mat-flat-button color="accent">reset</button>
+      <br><br>
+    </form>
+  </div>
+  <div *ngIf="!isEmpty()" class="flex">
+    <app-table *ngFor="let input of inputs;let i = index" [name]="input.name" [age]="input.age" [gender]="input.gender" [index]="i"></app-table>
+  </div>
+</div>
+
+

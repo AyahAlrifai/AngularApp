@@ -1,0 +1,34 @@
+<div>
+    <div class="tableTitle">
+        Persons Info
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr class="gray">
+                    <th style="width:10%"></th>
+                    <th style="width:30%">Name</th>
+                    <th style="width:10%">Age</th>
+                    <th style="width:30%">Birthdate MM/DD/YYYY</th>
+                    <th style="width:10%">Gender</th>
+                    <th style="width:10%">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let input of inputs;let i = index">
+                    <td style="width:10%">{{i+1}}</td>
+                    <td style="width:30%">{{ input.name }}</td>
+                    <td style="width:10%">{{ input.age }} year</td>
+                    <th style="width:30%">{{ input.birthdate }}</th>
+                    <td style="width:10%">{{ input.gender }}</td>
+                    <td style="width:10%">
+                        <button mat-icon-button color="warn" (click)="onDeletePerson(i)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

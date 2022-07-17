@@ -1,0 +1,20 @@
+*{
+  padding: 20px;
+}
+
+div {
+  font-weight: bolder;
+  font-size: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.item {
+  padding: 0px;
+  font-size: 15px;;
+  color: #ffffff;
+  font-weight: 50;
+  line-height: 1.6;
+}
