@@ -1,4 +1,10 @@
 <mat-selection-list #menu [multiple]="false">
-    <mat-list-option *ngFor="let li of list;let i=index" [value]="menu" (click)="setSelectedMenu(li.Rout);closeSidebar();"
-        [selected]="selectedMenu===i+1" routerLink="li.Rout">{{li.Title}}</mat-list-option>
+    <mat-list-option *ngFor="let li of list;let i=index" [value]="menu"
+        (click)="setSelectedMenu(li.Rout);closeSidebar();" [selected]="selectedMenu===i+1" routerLink={{li.Rout}}>
+        {{li.Title}}</mat-list-option>
+    <mat-list-option> 
+        <a href="https://github.com/AyahAlrifai/AngularApp" class="github" mat-flat-button>
+            <img src="../../assets/github.png" /> github
+        </a>
+    </mat-list-option>
 </mat-selection-list>
