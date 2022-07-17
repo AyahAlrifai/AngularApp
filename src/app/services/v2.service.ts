@@ -8,20 +8,19 @@ export interface Person {
 }
 
 export  class AppServiceV2 {
-    private persons: Person[] = [];
+    private persons: Person[] = [{name:"Ayah Alrefai",age:"25",gender:"Female",birthdate:"5/7/1997"}];
     appUpdated = new Subject();
 
     constructor() {
         let persons:Person[] = JSON.parse(( localStorage.getItem("inputs"))  as string) ;
-        if(persons !== null && persons !== undefined) {
+        if(persons !== null && persons !== undefined && persons.length !== 0) {
             this.persons = persons;
-        }
+        }  
     }
 
     addPerson(person: Person) {
         this.persons.push(person);
         this.appUpdated.next(this.persons);
-
         localStorage.setItem("inputs", JSON.stringify(this.persons));
     }
 
@@ -29,7 +28,6 @@ export  class AppServiceV2 {
         delete this.persons[i];
         this.persons =  this.persons.filter(p => p!==null && p!==undefined);
         this.appUpdated.next(this.persons);
-
         localStorage.setItem("inputs", JSON.stringify(this.persons));
     }
 

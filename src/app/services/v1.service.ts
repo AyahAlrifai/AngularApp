@@ -7,12 +7,12 @@ export interface Person {
 }
 
 export  class AppServiceV1 {
-    private persons: Person[] = [];
+    private persons: Person[] = [{name:"Ayah Alrefai",age:"25",gender:"Female"}];
     appUpdated = new Subject();
 
     constructor() {
         let persons:Person[] = JSON.parse(( localStorage.getItem("inputs"))  as string) ;
-        if(persons !== null && persons !== undefined) {
+        if(persons !== null && persons !== undefined && persons.length !== 0) {
             this.persons = persons;
         }
     }
