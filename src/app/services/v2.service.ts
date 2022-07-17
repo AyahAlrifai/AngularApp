@@ -8,7 +8,7 @@ export interface Person {
 }
 
 export  class AppServiceV2 {
-    private persons: Person[] = [{name:"Ayah Alrefai",age:"25",gender:"Female",birthdate:"5/7/1997"}];
+    private persons: Person[] = [];
     appUpdated = new Subject();
 
     constructor() {

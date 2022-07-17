@@ -2,5 +2,5 @@
   <div class="buttons_container">
     <button mat-raised-button (click)="openDialog()" type="submit" mat-flat-button color="accent">add</button>
   </div>
-  <mat-app-tablev4 *ngIf="!isEmpty()" [showDeleteColumn]="true"></mat-app-tablev4>
+  <mat-app-tablev4 [inputs]="inputs" [showDeleteColumn]="true"></mat-app-tablev4>
 </section>

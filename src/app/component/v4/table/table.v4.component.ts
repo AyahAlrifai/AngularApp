@@ -13,6 +13,7 @@ import { DeletePersonV4Dialog } from './deletePerson.v4.dialog';
 export class TableV4 implements OnInit {
 
   @Input() showDeleteColumn: boolean = false;
+  @Input() inputs : Person[] = [];
 
   @ViewChild("pageEvent")
   pageEvent!: PageEvent;

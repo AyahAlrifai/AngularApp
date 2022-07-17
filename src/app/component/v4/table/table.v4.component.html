@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody *ngIf="showDeleteColumn">
-                <tr *ngFor="let person of  appService.getPersons().slice(pageEvent.pageIndex*pageEvent.pageSize,(pageEvent.pageIndex+1)*pageEvent.pageSize);let i = index">
+                <tr *ngFor="let person of  inputs.slice(pageEvent.pageIndex*pageEvent.pageSize,(pageEvent.pageIndex+1)*pageEvent.pageSize);let i = index">
                     <td style="width:10%">{{ pageEvent.pageIndex*pageEvent.pageSize+i+1 }}</td>
                     <td style="width:30%">{{ person.name }}</td>
                     <td style="width:10%">{{ person.age }} year</td>
@@ -36,7 +36,7 @@
                 </tr>
             </tbody>
             <tbody *ngIf="!showDeleteColumn">
-                <tr *ngFor="let person of  appService.getPersons().slice(pageEvent.pageIndex*pageEvent.pageSize,(pageEvent.pageIndex+1)*pageEvent.pageSize);let i = index">
+                <tr *ngFor="let person of  inputs.slice(pageEvent.pageIndex*pageEvent.pageSize,(pageEvent.pageIndex+1)*pageEvent.pageSize);let i = index">
                     <td style="width:10%">{{ pageEvent.pageIndex*pageEvent.pageSize+i+1 }}</td>
                     <td style="width:30%">{{ person.name }}</td>
                     <td style="width:15%">{{ person.age }} year</td>
@@ -46,6 +46,9 @@
             </tbody>
         </table>
     </div>
-    <mat-paginator (page)="changePage()" [length]="appService.getPersons().length" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" #pageEvent aria-label="Select page">
+    <div fxLayout fxLayoutAlign="center center" *ngIf="inputs.length===0">
+        <span class="empty-grid">empty grid</span>
+    </div>
+    <mat-paginator (page)="changePage()" [length]="inputs.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" #pageEvent aria-label="Select page">
     </mat-paginator>
 </div>

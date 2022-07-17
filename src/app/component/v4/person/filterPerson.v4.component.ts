@@ -29,7 +29,6 @@ export class FilterPersonV4 implements OnInit,OnDestroy {
   }
 
   ngOnInit() {
-    this.inputs = this.appService.getPersons();
     this.appSubscription = this.appService.appUpdated.subscribe(() => {
       this.inputs = this.appService.getPersons();
     });
@@ -49,7 +48,7 @@ export class FilterPersonV4 implements OnInit,OnDestroy {
   }
 
   onResetForm() {
-    this.inputs = this.appService.getPersons();
+    this.inputs = [];
   }
 
   getNameErrorMessage() { 

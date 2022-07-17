@@ -39,5 +39,5 @@
       <button  type="reset" (click)="onResetForm()" mat-flat-button color="accent">reset</button>
     </div>
   </form>
-  <mat-app-tablev4 *ngIf="!isEmpty()" [showDeleteColumn]="false"></mat-app-tablev4>
+  <mat-app-tablev4 [inputs]="inputs" [showDeleteColumn]="false"></mat-app-tablev4>
 </section>
