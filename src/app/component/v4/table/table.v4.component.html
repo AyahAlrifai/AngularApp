@@ -1,31 +1,31 @@
 <div>
     <div class="tableTitle">
-        Persons Info
+        {{ "table.message3" | translate }}
     </div>
     <div>
         <table>
             <thead>
                 <tr class="gray" *ngIf="showDeleteColumn">
                     <th style="width:10%"></th>
-                    <th style="width:30%">Name</th>
-                    <th style="width:10%">Age</th>
-                    <th style="width:30%">Birthdate MM/DD/YYYY</th>
-                    <th style="width:10%">Gender</th>
-                    <th style="width:10%">Delete</th>
+                    <th style="width:30%">{{ "table.message4" | translate }}</th>
+                    <th style="width:10%">{{ "table.message5" | translate }}</th>
+                    <th style="width:30%">{{ "table.message6" | translate }}</th>
+                    <th style="width:10%">{{ "table.message7" | translate }}</th>
+                    <th style="width:10%">{{ "table.message8" | translate }}</th>
                 </tr>
                 <tr class="gray" *ngIf="!showDeleteColumn">
                     <th style="width:10%"></th>
-                    <th style="width:30%">Name</th>
-                    <th style="width:15%">Age</th>
-                    <th style="width:30%">Birthdate MM/DD/YYYY</th>
-                    <th style="width:15%">Gender</th>
+                    <th style="width:30%">{{ "table.message4" | translate }}</th>
+                    <th style="width:15%">{{ "table.message5" | translate }}</th>
+                    <th style="width:30%">{{ "table.message6" | translate }}</th>
+                    <th style="width:15%">{{ "table.message7" | translate }}</th>
                 </tr>
             </thead>
             <tbody *ngIf="showDeleteColumn">
                 <tr *ngFor="let person of  inputs.slice(pageEvent.pageIndex*pageEvent.pageSize,(pageEvent.pageIndex+1)*pageEvent.pageSize);let i = index">
                     <td style="width:10%">{{ pageEvent.pageIndex*pageEvent.pageSize+i+1 }}</td>
                     <td style="width:30%">{{ person.name }}</td>
-                    <td style="width:10%">{{ person.age }} year</td>
+                    <td style="width:10%">{{ person.age }} {{ "table.message9" | translate }}</td>
                     <th style="width:30%">{{ person.birthdate }}</th>
                     <td style="width:10%">{{ person.gender }}</td>
                     <td style="width:10%">
@@ -39,7 +39,7 @@
                 <tr *ngFor="let person of  inputs.slice(pageEvent.pageIndex*pageEvent.pageSize,(pageEvent.pageIndex+1)*pageEvent.pageSize);let i = index">
                     <td style="width:10%">{{ pageEvent.pageIndex*pageEvent.pageSize+i+1 }}</td>
                     <td style="width:30%">{{ person.name }}</td>
-                    <td style="width:15%">{{ person.age }} year</td>
+                    <td style="width:15%">{{ person.age }} {{ "table.message9" | translate }}</td>
                     <th style="width:30%">{{ person.birthdate }}</th>
                     <td style="width:15%">{{ person.gender }}</td>
                 </tr>

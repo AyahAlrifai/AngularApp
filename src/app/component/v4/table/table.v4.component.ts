@@ -2,8 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContaine
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 import { AppServiceV2, Person } from '../../../services/v2.service';
 import { DeletePersonV4Dialog } from './deletePerson.v4.dialog';
+import { TableTranslateService } from './table.translate';
 
 @Component({
   selector: 'mat-app-tablev4',
@@ -20,8 +22,12 @@ export class TableV4 implements OnInit {
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-  
-  constructor(public appService: AppServiceV2,public dialog: MatDialog,private _snackBar: MatSnackBar) {
+  messages:any;
+
+  constructor(public appService: AppServiceV2,public dialog: MatDialog,private _snackBar: MatSnackBar,private translate: TranslateService,private tableTranslateService:  TableTranslateService) {
+    tableTranslateService.getObservable().subscribe((txt:any)=>{      
+      this.messages=txt;
+    });
   }
 
   ngOnInit() {
@@ -36,7 +42,7 @@ export class TableV4 implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.appService.deletePerson(i);
-        this.openSnackBar("person deleted","successfully")
+        this.openSnackBar(this.messages["table.message1"],this.messages["table.message2"])
       }
     });
   }

@@ -1,72 +1,74 @@
 <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
-    <mat-tab label="Card and select">
+    <mat-tab label="{{ 'home-other.message9' | translate}} ">
         <section class="new-training" fxLayout fxLayoutAlign="center">
             <mat-card fxFlex.xs="100%" fxFlex="400px">
-                <mat-card-title fxLayoutAlign="center">my favorite Framwork is {{selectedValue.value}}</mat-card-title>
+                <mat-card-title fxLayoutAlign="center">
+                    {{ 'home-other.message1' | translate}} {{selectedValue.value}}
+                </mat-card-title>
                 <mat-card-content fxLayoutAlign="center">
                     <mat-form-field>
-                        <mat-select placeholder="Favorite framework" #selectedValue>
-                            <mat-option value="React">
-                                React
+                        <mat-select placeholder="{{ 'home-other.message8' | translate}} " #selectedValue>
+                            <mat-option value="{{ 'home-other.message2' | translate}} ">
+                                {{ 'home-other.message2' | translate}} 
                             </mat-option>
-                            <mat-option value="Angular">
-                                Angular
+                            <mat-option value="{{ 'home-other.message3' | translate}} ">
+                                {{ 'home-other.message3' | translate}} 
                             </mat-option>
-                            <mat-option value="flutter ">
-                                flutter
+                            <mat-option value="{{ 'home-other.message4' | translate}} ">
+                                {{ 'home-other.message4' | translate}} 
                             </mat-option>
-                            <mat-option value="Laravel">
-                                Laravel
+                            <mat-option value="{{ 'home-other.message5' | translate}} ">
+                                {{ 'home-other.message5' | translate}} 
                             </mat-option>
-                            <mat-option value="zframework">
-                                ZFramework <mat-icon>tag_faces</mat-icon>
+                            <mat-option value="{{ 'home-other.message6' | translate}}">
+                                 {{ 'home-other.message6' | translate}} <mat-icon>tag_faces</mat-icon>
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </mat-card-content>
                 <mat-card-actions fxLayoutAlign="center">
-                    <button type="submit" mat-button>submit</button>
+                    <button type="submit" mat-button>{{ 'home-other.message7' | translate}} </button>
                 </mat-card-actions>
             </mat-card>
         </section>
 
     </mat-tab>
-    <mat-tab label="progress spinner">
+    <mat-tab label="{{ 'home-other.message10' | translate}} ">
         <section class="new-training" fxLayout fxLayoutAlign="center center">
             <div class="welcome" fxLayout="row" fxLayoutGap.gt-md="50px"
                 fxLayoutAlign="center center">
                 <div>
                     <mat-progress-spinner #thirdSpinner color="accent" mode="indeterminate">
                     </mat-progress-spinner>
-                    <h5>loading...</h5>
+                    <h5>{{ 'home-other.message11' | translate}}</h5>
                 </div>
                 <div>
                     <mat-progress-spinner #firstSpinner color="accent" mode="determinate" value="25">
                     </mat-progress-spinner>
-                    <h5>progress 25%</h5>
+                    <h5>{{ 'home-other.message12' | translate}}</h5>
                 </div>
                 <div>
                     <mat-progress-spinner #firstSpinner color="accent" mode="determinate" value="50">
                     </mat-progress-spinner>
-                    <h5>progress 50%</h5>
+                    <h5>{{ 'home-other.message13' | translate}}</h5>
                 </div>
                 <div>
                     <mat-progress-spinner #firstSpinner color="accent" mode="determinate" value="75">
                     </mat-progress-spinner>
-                    <h5>progress 75%</h5>
+                    <h5>{{ 'home-other.message14' | translate}}</h5>
                 </div>
                 <div>
                     <mat-progress-spinner #secondSpinner color="accent" mode="determinate" [value]="spinnerValue">
                     </mat-progress-spinner>
-                    <h5>progress {{spinnerValue}}%</h5>
+                    <h5>{{ 'home-other.message15' | translate}} {{spinnerValue}}%</h5>
                     <div>
-                        <button mat-button (click)="startLoad()">start</button>
-                        <button mat-button (click)="stopLoad()">stop</button>
+                        <button mat-button (click)="startLoad()">{{ 'home-other.message16' | translate}}</button>
+                        <button mat-button (click)="stopLoad()">{{ 'home-other.message17' | translate}}</button>
                     </div>
                 </div>
             </div>
         </section>
 
     </mat-tab>
-    <mat-tab label="Third">Content 3</mat-tab>
+    <mat-tab label="{{ 'home-other.message19' | translate}}">{{ 'home-other.message18' | translate}}</mat-tab>
 </mat-tab-group>

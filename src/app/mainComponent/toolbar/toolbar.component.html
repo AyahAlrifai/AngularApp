@@ -4,7 +4,7 @@
             <mat-icon>menu</mat-icon>
         </button>
     </div>
-    <div><span>Ayah Alrefai...</span></div>
+    <div><span>{{ 'toolbar.title' | translate }}</span></div>
     <div fxFlex fxLayout fxLayoutAlign="flex-start" fxHide.xs>
         <ul fxLayout fxLayoutGap="10px" class="navigation-items">
             <mat-button-toggle-group aria-label="Font Style" style="border: none;">
@@ -17,9 +17,16 @@
         </ul>
     </div>
     <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
-        <ul fxLayout fxLayoutGap="10px" class="navigation-items">
-            <a href="https://github.com/AyahAlrifai/AngularApp" class="github" mat-flat-button><img
+        <ul fxLayout fxLayoutGap="5px">
+            <span>
+                <a href="https://github.com/AyahAlrifai/AngularApp" class="github" mat-flat-button><img
                     src="../../assets/github.jpg" /> github</a>
+            </span> 
+                <span fxLayout fxLayoutGap="2px" fxLayout="row">
+                    <span>En</span>
+                    <span><mat-slide-toggle [(ngModel)]="languageIsChecked" (change)="onChangeLang()"></mat-slide-toggle></span>
+                    <span>Ar</span>
+                </span>
         </ul>
     </div>
 </mat-toolbar>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { NavTranslateService } from './nav.translate';
 
 export interface Item {
   Order: number,
@@ -14,28 +16,45 @@ export interface Item {
 })
 export class Nav {
 
-  v1SubItems: Item[] = [{ Order: 1, Title: 'add Person v1', Rout: '/v1/add', SubItem: [] }, { Order: 2, Title: 'filter Persons v1', Rout: '/v1/filter', SubItem: [] }];
-  v2SubItems: Item[] = [{ Order: 1, Title: 'add Person v2', Rout: '/v2/add', SubItem: [] }, { Order: 2, Title: 'filter Persons v2', Rout: '/v2/filter', SubItem: [] }];
-  v3SubItems: Item[] = [{ Order: 1, Title: 'add Person v3', Rout: '/v3/add', SubItem: [] }];
-  v4SubItems: Item[] = [{ Order: 1, Title: 'add Person v4', Rout: '/v4/add', SubItem: [] }, { Order: 2, Title: 'filter Persons v4', Rout: '/v4/filter', SubItem: [] }];
-  otherSubItems: Item[] = [{ Order: 1, Title: 'Some Materials', Rout: '/other/home', SubItem: [] }, { Order: 2, Title: 'button', Rout: '/other/button', SubItem: [] }, { Order: 3, Title: 'Grid', Rout: '/other/grid', SubItem: [] }, { Order: 4, Title: 'expansion Panel', Rout: '/other/expansionPanel', SubItem: [] }];
+  v1SubItems: Item[] = [];
+  v2SubItems: Item[] = [];
+  v3SubItems: Item[] = [];
+  v4SubItems: Item[] = [];
+  otherSubItems: Item[] = [];
 
   list: Item[] = [
-    { Order: 1, Title: 'version 1', Rout: '/v1/home', SubItem: this.v1SubItems },
-    { Order: 2, Title: 'version 2', Rout: '/v2/home', SubItem: this.v2SubItems },
-    { Order: 3, Title: 'version 3', Rout: '/v3/home', SubItem: this.v3SubItems },
-    { Order: 4, Title: 'version 4', Rout: '/v4/home', SubItem: this.v4SubItems },
-    { Order: 5, Title: 'Others', Rout: '/other/home', SubItem: this.otherSubItems }
   ];
 
   selectedMenu = 0;
   selectedSubMenu = 0;
+  messages:any;
 
-  constructor() {
-    let pathName = window.location.pathname;
-    console.log(pathName)
-    this.setSelectedMenuItem(pathName);
+  constructor(private translate: TranslateService,private navTranslateService:  NavTranslateService) {
+    navTranslateService.getObservable().subscribe((txt:any)=>{      
+      this.messages=txt;
+      this.init();
+    });
   }
+
+  init() {
+    this.v1SubItems = [{ Order: 1, Title: this.messages["nav.message1"], Rout: '/v1/add', SubItem: [] }, { Order: 2, Title: this.messages['nav.message6'], Rout: '/v1/filter', SubItem: [] }];
+      this.v2SubItems = [{ Order: 1, Title: this.messages["nav.message2"], Rout: '/v2/add', SubItem: [] }, { Order: 2, Title: this.messages['nav.message7'], Rout: '/v2/filter', SubItem: [] }];
+      this.v3SubItems = [{ Order: 1, Title: this.messages["nav.message3"], Rout: '/v3/add', SubItem: [] }];
+      this.v4SubItems = [{ Order: 1, Title: this.messages["nav.message4"], Rout: '/v4/add', SubItem: [] }, { Order: 2, Title:this.messages['nav.message8'], Rout: '/v4/filter', SubItem: [] }];
+      this.otherSubItems = [{ Order: 1, Title: this.messages['nav.message5'], Rout: '/other/home', SubItem: [] }, { Order: 2, Title: this.messages['nav.message9'], Rout: '/other/button', SubItem: [] }, { Order: 3, Title: this.messages['nav.message10'], Rout: '/other/grid', SubItem: [] }, { Order: 4, Title: this.messages['nav.message11'], Rout: '/other/expansionPanel', SubItem: [] }];
+
+      this.list = [
+        { Order: 1, Title: this.messages['nav.message12'], Rout: '/v1/home', SubItem: this.v1SubItems },
+        { Order: 2, Title: this.messages['nav.message13'], Rout: '/v2/home', SubItem: this.v2SubItems },
+        { Order: 3, Title: this.messages['nav.message14'], Rout: '/v3/home', SubItem: this.v3SubItems },
+        { Order: 4, Title: this.messages['nav.message15'], Rout: '/v4/home', SubItem: this.v4SubItems },
+        { Order: 5, Title: this.messages['nav.message16'], Rout: '/other/home', SubItem: this.otherSubItems }
+      ];
+      let pathName = window.location.pathname;
+      this.setSelectedMenuItem(pathName);
+  }
+
+  
 
   setSelectedMenuItem(rout: String) {
     this.selectedSubMenu = 0;
@@ -51,6 +70,10 @@ export class Nav {
         }
       }
     }
+    console.log(this.selectedMenu);
+    
+    console.log(this.selectedSubMenu);
+    
   }
 
 }

@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { AppServiceV2, Person } from '../../../services/v2.service';
+import { AddTranslateService } from './add.translate';
 import { AddPersonV4Dialog } from './addPerson.v4.dialog';
 
 @Component({
@@ -16,10 +18,14 @@ export class AddPersonV4 implements OnInit, OnDestroy {
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-  
-  constructor(private appService: AppServiceV2,public dialog: MatDialog,private _snackBar: MatSnackBar) {
+  messages:any;
 
+  constructor(private appService: AppServiceV2,public dialog: MatDialog,private _snackBar: MatSnackBar,private translate: TranslateService,private addTranslateService:  AddTranslateService) {
+    addTranslateService.getObservable().subscribe((txt:any)=>{      
+      this.messages=txt;
+    });
   }
+
 
   ngOnInit() {
     this.inputs = this.appService.getPersons();
@@ -46,8 +52,7 @@ export class AddPersonV4 implements OnInit, OnDestroy {
       if(result !== null && result !== "") {
         let date = result.birthdate.toLocaleDateString().split("T")[0];
         this.appService.addPerson({...result,birthdate:date});
-        this.openSnackBar("person added","successfully");
- 
+        this.openSnackBar(this.messages["add-person.message1"],this.messages["add-person.message2"]);
       }
     });
   }

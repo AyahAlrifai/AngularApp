@@ -1,7 +1,9 @@
 import { Component, Inject } from "@angular/core";
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { TranslateService } from "@ngx-translate/core";
 import { AddPersonV4 } from "./addPerson.v4.component";
+import { DialogTranslateService } from "./dialog.translate";
 
 @Component({
     templateUrl: './addPerson.v4.dialog.html',
@@ -17,8 +19,9 @@ export class AddPersonV4Dialog {
 
     invalid: Boolean =false;
 
+    messages:any;
     constructor(fb: FormBuilder, public dialogRef: MatDialogRef<AddPersonV4>,
-        @Inject(MAT_DIALOG_DATA) public data: any) {
+        @Inject(MAT_DIALOG_DATA) public data: any,private translate: TranslateService,private dialogTranslateService:  DialogTranslateService) {
 
         this.birthdate = new FormControl(new Date());
         this.options = fb.group({
@@ -27,6 +30,9 @@ export class AddPersonV4Dialog {
             gender: this.gender,
             birthdate: this.birthdate,
         });
+        dialogTranslateService.getObservable().subscribe((txt:any)=>{      
+            this.messages=txt;
+          });
     }
 
     submitForm() {
@@ -39,9 +45,9 @@ export class AddPersonV4Dialog {
 
     getNameErrorMessage() {        
         if (this.name.hasError("required")) {
-            return "you must enter a value";
+            return this.messages["person-dialog.message1"];
         } else if( this.name.hasError('maxlength') || this.name.hasError('minlength') ) {
-            return "length should be between 1-50";
+            return this.messages["person-dialog.message2"];
         }
         return "";
     }
@@ -49,16 +55,16 @@ export class AddPersonV4Dialog {
     getAgeErrorMessage() {
 
         if (this.age.hasError("required")) {
-            return "you must enter a value";
+            return this.messages["person-dialog.message3"];
         } else if (this.age.hasError('max') || this.age.hasError('min')) {
-            return "age should be between 18-100";
+            return this.messages["person-dialog.message4"];
         }
         return "";
     }
 
     getGenderErrorMessage() {
         if (this.name.hasError("required")) {
-            return "you must enter a value"
+            return this.messages["person-dialog.message5"];
         }
         return "";
     }

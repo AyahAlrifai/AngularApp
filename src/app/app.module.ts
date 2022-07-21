@@ -36,6 +36,13 @@ import { Header } from './mainComponent/header/header.component';
 import { Toolbar } from './mainComponent/toolbar/toolbar.component';
 import { SideNav } from './mainComponent/sideNav/sidenav.component';
 
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { NavTranslateService } from './mainComponent/nav/nav.translate';
+import { AddTranslateService } from './component/v4/person/add.translate';
+import { DialogTranslateService } from './component/v4/person/dialog.translate';
+import { TableTranslateService } from './component/v4/table/table.translate';
 
 @NgModule({
   declarations: [
@@ -54,10 +61,23 @@ import { SideNav } from './mainComponent/sideNav/sidenav.component';
     ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        },
+        defaultLanguage:localStorage.getItem("lang") as string === undefined ? 'en': localStorage.getItem("lang") as string,
+    }),
   ],
-  providers: [AppServiceV1,AppServiceV2], 
+  providers: [AppServiceV1,AppServiceV2,NavTranslateService,AddTranslateService,DialogTranslateService,TableTranslateService], 
   bootstrap: [Nav]
 })
 export class AppModule {
   
  }
+
+ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}
