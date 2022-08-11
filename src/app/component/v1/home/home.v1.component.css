@@ -16,20 +16,39 @@
 
 .first {
   background-color: #696969;
+  color: #FFFFFF;
 }
 
 .second {
   background-color: #808080;
+  color: #FFFFFF;
 }
 
 .third {
   background-color: #A9A9A9;
+  color: #000000;
 }
 
 .fourth {
   background-color: #C0C0C0;
+  color: #000000;
 }
 
 .fifth {
   background-color: #FFFFFF;
+  color: #000000;
+}
+
+.tree {
+  border: 1px solid #000000;
+  margin: 5px;
+}
+
+table {
+  width: 96%;
+  margin: 2%;
+}
+
+th,td {
+  text-align: center;
 }
