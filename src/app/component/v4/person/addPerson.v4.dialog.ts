@@ -17,11 +17,14 @@ export class AddPersonV4Dialog {
     gender = new FormControl('Male', [Validators.required]);
     birthdate = new FormControl(new Date(0, 0, 0));
 
-    invalid: Boolean =false;
+    invalid: Boolean = false;
 
-    messages:any;
-    constructor(fb: FormBuilder, public dialogRef: MatDialogRef<AddPersonV4>,
-        @Inject(MAT_DIALOG_DATA) public data: any,private translate: TranslateService,private dialogTranslateService:  DialogTranslateService) {
+    messages: any;
+    constructor(fb: FormBuilder,
+        public dialogRef: MatDialogRef<any>,
+        @Inject(MAT_DIALOG_DATA) public data: any,
+        private translate: TranslateService,
+        private dialogTranslateService: DialogTranslateService) {
 
         this.birthdate = new FormControl(new Date());
         this.options = fb.group({
@@ -30,9 +33,9 @@ export class AddPersonV4Dialog {
             gender: this.gender,
             birthdate: this.birthdate,
         });
-        dialogTranslateService.getObservable().subscribe((txt:any)=>{      
-            this.messages=txt;
-          });
+        dialogTranslateService.getObservable().subscribe((txt: any) => {
+            this.messages = txt;
+        });
     }
 
     submitForm() {
@@ -43,10 +46,10 @@ export class AddPersonV4Dialog {
         }
     }
 
-    getNameErrorMessage() {        
+    getNameErrorMessage() {
         if (this.name.hasError("required")) {
             return this.messages["person-dialog.message1"];
-        } else if( this.name.hasError('maxlength') || this.name.hasError('minlength') ) {
+        } else if (this.name.hasError('maxlength') || this.name.hasError('minlength')) {
             return this.messages["person-dialog.message2"];
         }
         return "";

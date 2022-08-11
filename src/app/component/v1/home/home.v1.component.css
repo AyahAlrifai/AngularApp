@@ -1,8 +1,35 @@
 .example-card {
-    max-width: 400px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.child {
+  background-color: aqua;
+  width: 20%;
+  height: 50%;
+  border: 1px solid #000000;
+}
+
+.first {
+  background-color: #696969;
+}
+
+.second {
+  background-color: #808080;
+}
+
+.third {
+  background-color: #A9A9A9;
+}
+
+.fourth {
+  background-color: #C0C0C0;
+}
+
+.fifth {
+  background-color: #FFFFFF;
+}
