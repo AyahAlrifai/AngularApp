@@ -27,6 +27,7 @@
 <table mat-table class="mat-elevation-z8">
   <thead>
     <tr>
+      <th mat-header-cell>No</th>
       <th mat-header-cell>Name</th>
       <th mat-header-cell>siteId</th>
       <th mat-header-cell>code</th>
@@ -34,7 +35,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let node of selectedSites">
+    <tr *ngFor="let node of selectedSites;let i=index">
+      <td mat-cell>{{ i+1 }}</td>
       <td mat-cell>{{node.name}}</td>
       <td mat-cell>{{ node.siteId }}</td>
       <td mat-cell>{{ node.code }}</td>
