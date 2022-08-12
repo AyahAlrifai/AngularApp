@@ -128,7 +128,7 @@ export class HomeV1 {
     return result && !this.descendantsAllSelected(node);
   }
 
-  todoItemSelectionToggle(node: SiteNode): void {
+  siteItemSelectionToggle(node: SiteNode): void {
     this.checklistSelection.toggle(node);
     const descendants = this.treeControl.getDescendants(node);
     this.checklistSelection.isSelected(node)
@@ -136,6 +136,8 @@ export class HomeV1 {
       : this.checklistSelection.deselect(...descendants);
     descendants.forEach(child => this.checklistSelection.isSelected(child));
     this.checkAllParentsSelection(node);
+
+    this.sortSelectedSites();
   }
 
   checkAllParentsSelection(node: SiteNode): void {
@@ -187,9 +189,23 @@ export class HomeV1 {
   siteLeafItemSelectionToggle(node: SiteNode): void {
     this.checklistSelection.toggle(node);
     this.checkAllParentsSelection(node);
+
+    this.sortSelectedSites();
   }
 
-  submit() {
-    this.selectedSites = this.checklistSelection.selected
+  sortSelectedSites() {
+    this.selectedSites = this.checklistSelection.selected;
+    this.selectedSites.sort((site1,site2)=>{
+      if(site1.level === site2.level) {
+        if(site1.siteId === site2.siteId) {
+          if(site1.type === site2.type) {
+            return site1.name - site2.name
+          }
+          return site1.type - site2.type
+        }
+        return site1.siteId - site2.siteId
+      }
+      return site1.level - site2.level;
+    })
   }
 }
