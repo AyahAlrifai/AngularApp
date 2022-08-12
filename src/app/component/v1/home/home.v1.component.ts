@@ -48,12 +48,12 @@ export class HomeV1 {
               { name: 'E', siteId: 4 ,code:"a1221",type:5},
               {name: 'F', siteId: 5,code:"a1221",type:5, children: [
                   { name: 'G', siteId: 6 ,code:"a1221",type:5},
+                  { name: 'L', siteId: 11,code:"a1221",type:5 },
                   {name: 'H', siteId: 7,code:"a1221",type:5, children: [
                       { name: 'I', siteId: 8 ,code:"a1221",type:5},
                       { name: 'G', siteId: 9 ,code:"a1221",type:5},
                       { name: 'K', siteId: 10 ,code:"a1221",type:5}]
-                  },
-                  { name: 'L', siteId: 11,code:"a1221",type:5 }
+                  }
                 ]
               }
             ]
@@ -64,16 +64,16 @@ export class HomeV1 {
               { name: 'P', siteId: 14,code:"a1221",type:5 },
               {name: 'Q', siteId: 15,code:"a1221",type:5, children: [
                   { name: 'R', siteId: 16,code:"a1221",type:5 },
+                  { name: 'W', siteId: 21,code:"a1221",type:5 },
+                  { name: 'X', siteId: 22,code:"a1221",type:5 },
+                  { name: 'Y', siteId: 23,code:"a1221",type:5 },
+                  { name: 'Z', siteId: 24,code:"a1221",type:5 },
                   {name: 'S', siteId: 17,code:"a1221",type:5, children: [
                       { name: 'T', siteId: 18,code:"a1221",type:5 },
                       { name: 'U', siteId: 19 ,code:"a1221",type:5},
                       { name: 'V', siteId: 20 ,code:"a1221",type:5}
                     ]
                   },
-                  { name: 'W', siteId: 21,code:"a1221",type:5 },
-                  { name: 'X', siteId: 22,code:"a1221",type:5 },
-                  { name: 'Y', siteId: 23,code:"a1221",type:5 },
-                  { name: 'Z', siteId: 24,code:"a1221",type:5 }
                 ]
               }
             ]
