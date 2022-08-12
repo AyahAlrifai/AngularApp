@@ -5,7 +5,7 @@
     <div>
         <table>
             <thead>
-                <tr class="gray" *ngIf="showDeleteColumn">
+                <tr class="primary" *ngIf="showDeleteColumn">
                     <th style="width:10%"></th>
                     <th style="width:30%">{{ "table.message4" | translate }}</th>
                     <th style="width:10%">{{ "table.message5" | translate }}</th>
@@ -13,7 +13,7 @@
                     <th style="width:10%">{{ "table.message7" | translate }}</th>
                     <th style="width:10%">{{ "table.message8" | translate }}</th>
                 </tr>
-                <tr class="gray" *ngIf="!showDeleteColumn">
+                <tr class="primary" *ngIf="!showDeleteColumn">
                     <th style="width:10%"></th>
                     <th style="width:30%">{{ "table.message4" | translate }}</th>
                     <th style="width:15%">{{ "table.message5" | translate }}</th>

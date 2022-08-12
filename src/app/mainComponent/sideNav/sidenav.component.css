@@ -1,27 +1,10 @@
-.mat-list-single-selected-option {
-  background: hsla(340, 49%, 45%, 0.15);
-  color: #ff4081b5;
-}
-
-.toolbar-item {
-  background-color:#ff4081;
-  color:aliceblue;
-  padding: 2px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  font-size: 15px;
-}
+@import "@angular/material/prebuilt-themes/purple-green.css";
 
 .sidenav-item {
   border: none;
   width:100%;
   background-color: #ff408047;
   opacity: 0.5;
-}
-
-.mat-button-toggle-checked {
-  background-color: #cb0648;
-  color:aliceblue;
 }
 
 .main-sidenav {
@@ -36,17 +19,9 @@ mat-toolbar-row {
   color:aliceblue;
 }
 
-mat-toolbar {
-  background-color:#ff4081;
-}
-
 mat-drawer {
   width:20%;
 }
-
-/* mat-drawer-content {
-  padding: 25px !important;
-} */
 
 mat-drawer-container {
   height: 100vh;

@@ -99,7 +99,7 @@ export class HomeV1 {
 
   transformer(node: Site, level: number) {
     return {
-      expandable: !!node.children && node.children.length > 0,
+      expandable:  !!node.children && node.children.length > 0,
       name: node.name,
       siteId: node.siteId,
       code: node.code,

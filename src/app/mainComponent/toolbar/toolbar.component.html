@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
     <div fxHide.gt-xs>
         <button mat-icon-button (click)="toggleDrawer()">
             <mat-icon>menu</mat-icon>
@@ -6,11 +6,11 @@
     </div>
     <div><span>{{ 'toolbar.title' | translate }}</span></div>
     <div fxFlex fxLayout fxLayoutAlign="flex-start" fxHide.xs>
-        <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+        <ul fxLayout fxLayoutGap="10px">
             <mat-button-toggle-group aria-label="Font Style" style="border: none;">
                 <li *ngFor="let li of list, let i = index">
-                    <mat-button-toggle class="toolbar-item" mat-Stroked-button routerLink={{li.Rout}}
-                        (click)="setSelectedMenu(li.Rout)" [checked]="selectedMenu===i+1">{{li.Title}}
+                    <mat-button-toggle class="mat-primary" [checked]="selectedMenu===i+1" routerLink={{li.Rout}} (click)="setSelectedMenu(li.Rout)" class="toolbar-item" >
+                        {{li.Title}}
                     </mat-button-toggle>
                 </li>
             </mat-button-toggle-group>
@@ -19,14 +19,16 @@
     <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
         <ul fxLayout fxLayoutGap="5px">
             <span>
-                <a href="https://github.com/AyahAlrifai/AngularApp" class="github" mat-flat-button><img
-                    src="../../assets/github.jpg" /> github</a>
-            </span> 
-                <span fxLayout fxLayoutGap="2px" fxLayout="row">
-                    <span>En</span>
-                    <span><mat-slide-toggle [(ngModel)]="languageIsChecked" (change)="onChangeLang()"></mat-slide-toggle></span>
-                    <span>Ar</span>
+                <a href="https://github.com/AyahAlrifai/AngularApp" class="github" mat-flat-button color="primary"><img
+                        src="../../assets/github.jpg" /> github</a>
+            </span>
+            <span fxLayout fxLayoutGap="2px" fxLayout="row">
+                <span>En</span>
+                <span>
+                    <mat-slide-toggle [(ngModel)]="languageIsChecked" (change)="onChangeLang()"></mat-slide-toggle>
                 </span>
+                <span>Ar</span>
+            </span>
         </ul>
     </div>
 </mat-toolbar>

@@ -35,8 +35,8 @@
       <mat-error *ngIf="gender.invalid">{{getGenderErrorMessage()}}</mat-error>
     </div>
     <div class="buttons_container">
-      <button type="submit" mat-flat-button color="accent">filter</button>
-      <button  type="reset" (click)="onResetForm()" mat-flat-button color="accent">reset</button>
+      <button mat-raised-button color="accent"  type="submit">filter</button>
+      <button mat-raised-button color="accent"  type="reset" (click)="onResetForm()">reset</button>
     </div>
   </form>
   <mat-app-tablev4 [inputs]="inputs" [showDeleteColumn]="false"></mat-app-tablev4>

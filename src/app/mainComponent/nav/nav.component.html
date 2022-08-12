@@ -6,7 +6,7 @@
         <mat-drawer-content>
             <nav-toolbar [selectedMenu]="selectedMenu" [list]="list" (toggleDrawerEvent)="drawer.toggle()" (setSelectedMenuEvent)="setSelectedMenuItem($event);"></nav-toolbar> 
             <main *ngFor="let li of list;let i =index">
-                <nav-sidenav [selectedSubMenu]="selectedSubMenu" *ngIf="selectedMenu === (i+1)" [item]="list[i]"></nav-sidenav>
+                <nav-sidenav  [selectedSubMenu]="selectedSubMenu" *ngIf="selectedMenu === (i+1)" [item]="list[i]"></nav-sidenav>
             </main>
         </mat-drawer-content>
     </mat-drawer-container>

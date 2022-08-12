@@ -1,3 +1,4 @@
+@import "@angular/material/prebuilt-themes/purple-green.css";
 
 .first {
   background-color: #696969;
@@ -28,7 +29,7 @@
 }
 
 .fifth {
-  background-color: #FFFFFF;
+  background-color: #a4a4a4;
   color: #000000;
   font-weight: 300;
   border: 1px solid #ffffff;
@@ -38,32 +39,52 @@
   margin: 5px;
 }
 
+/*#########################################################################################################################*/
 table {
   width: 96%;
   margin: 2%;
 }
 
-th,td {
+table,
+th,
+td {
+  border: 1px solid;
   text-align: center;
-  padding: 4px;
-  border-bottom: 1px solid #ddd;
 }
 
-thead {
-  background-color: #ff4081;
+td,
+th {
+  padding: 6px;
+}
+
+.primary {
+  background-color: #7b1fa2;
   color: #ffffff;;
 }
 
-tbody > tr:hover {
-  background-color: #c3bfbf;
-  color: #000000;;
+tbody>tr:hover {
+  background-color: #696969;
+  color: #ffffff;
+  ;
 }
 
 .empty-grid {
-  background-color: #ffd740;
+  background-color: #f44336;
   color: #000000;
   text-align: center;
   width: 30%;
   padding: 4px;
   border-radius: 5px;
 }
+
+/*#########################################################################################################################*/
+.action-buttons {
+  margin: 5px;
+  ;
+}
+
+button {
+  margin: 5px;
+}
+
+/*#########################################################################################################################*/

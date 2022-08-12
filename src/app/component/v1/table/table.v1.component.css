@@ -1,3 +1,4 @@
+@import "@angular/material/prebuilt-themes/purple-green.css";
 table,
 th,
 td {
@@ -16,8 +17,8 @@ th {
   padding: 6px;
 }
 
-.gray {
-  background-color: #aaaaaa;
+.primary {
+  background-color: #7b1fa2;
 }
 
 .white {

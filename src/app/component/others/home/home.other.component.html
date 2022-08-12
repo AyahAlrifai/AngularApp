@@ -27,7 +27,7 @@
                     </mat-form-field>
                 </mat-card-content>
                 <mat-card-actions fxLayoutAlign="center">
-                    <button type="submit" mat-button>{{ 'home-other.message7' | translate}} </button>
+                    <button type="submit" mat-raised-button color="accent">{{ 'home-other.message7' | translate}} </button>
                 </mat-card-actions>
             </mat-card>
         </section>
@@ -38,32 +38,32 @@
             <div class="welcome" fxLayout="row" fxLayoutGap.gt-md="50px"
                 fxLayoutAlign="center center">
                 <div>
-                    <mat-progress-spinner #thirdSpinner color="accent" mode="indeterminate">
+                    <mat-progress-spinner color="accent" #thirdSpinner mode="indeterminate">
                     </mat-progress-spinner>
                     <h5>{{ 'home-other.message11' | translate}}</h5>
                 </div>
                 <div>
-                    <mat-progress-spinner #firstSpinner color="accent" mode="determinate" value="25">
+                    <mat-progress-spinner color="accent" #firstSpinner  mode="determinate" value="25">
                     </mat-progress-spinner>
                     <h5>{{ 'home-other.message12' | translate}}</h5>
                 </div>
                 <div>
-                    <mat-progress-spinner #firstSpinner color="accent" mode="determinate" value="50">
+                    <mat-progress-spinner color="accent" #firstSpinner  mode="determinate" value="50">
                     </mat-progress-spinner>
                     <h5>{{ 'home-other.message13' | translate}}</h5>
                 </div>
                 <div>
-                    <mat-progress-spinner #firstSpinner color="accent" mode="determinate" value="75">
+                    <mat-progress-spinner color="accent" #firstSpinner  mode="determinate" value="75">
                     </mat-progress-spinner>
                     <h5>{{ 'home-other.message14' | translate}}</h5>
                 </div>
                 <div>
-                    <mat-progress-spinner #secondSpinner color="accent" mode="determinate" [value]="spinnerValue">
+                    <mat-progress-spinner color="accent" #secondSpinner mode="determinate" [value]="spinnerValue">
                     </mat-progress-spinner>
                     <h5>{{ 'home-other.message15' | translate}} {{spinnerValue}}%</h5>
                     <div>
-                        <button mat-button (click)="startLoad()">{{ 'home-other.message16' | translate}}</button>
-                        <button mat-button (click)="stopLoad()">{{ 'home-other.message17' | translate}}</button>
+                        <button mat-stroked-button color="accent" (click)="startLoad()">{{ 'home-other.message16' | translate}}</button>
+                        <button mat-stroked-button color="accent" (click)="stopLoad()">{{ 'home-other.message17' | translate}}</button>
                     </div>
                 </div>
             </div>

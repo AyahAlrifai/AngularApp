@@ -1,3 +1,4 @@
+@import "@angular/material/prebuilt-themes/purple-green.css";
 * {
   margin: 5px;
 }
@@ -20,7 +21,6 @@ th {
 }
 
 .flex {
-  border: 1px #000000 solid;
   display: flex;
   justify-content:space-evenly;
   justify-items: center;

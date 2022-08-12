@@ -1,9 +1,13 @@
+<div class="action-buttons">
+  <button mat-raised-button  color="accent" (click)="treeControl.expandAll();">Expand all</button>
+  <button mat-raised-button  color="accent" (click)="treeControl.collapseAll()">Collapse all</button>
+</div>
+
 <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree">
   <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding class="fifth">
     <button mat-icon-button disabled></button>
-    <mat-checkbox 
-    [checked]="checklistSelection.isSelected(node)"
-    (change)="siteLeafItemSelectionToggle(node)"> {{node.name}} </mat-checkbox>
+    <mat-checkbox [checked]="checklistSelection.isSelected(node)"
+      (change)="siteLeafItemSelectionToggle(node)"> {{node.name}} </mat-checkbox>
   </mat-tree-node>
 
   <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding [ngClass]="{
@@ -16,14 +20,14 @@
         {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
       </mat-icon>
     </button>
-    <mat-checkbox [checked]="descendantsAllSelected(node)" [indeterminate]="descendantsPartiallySelected(node)"
-      (change)="siteItemSelectionToggle(node)">
+    <mat-checkbox [checked]="descendantsAllSelected(node)"
+      [indeterminate]="descendantsPartiallySelected(node)" (change)="siteItemSelectionToggle(node)">
       {{node.name}}</mat-checkbox>
   </mat-tree-node>
 </mat-tree>
 
-<table mat-table class="mat-elevation-z8">
-  <thead>
+<table mat-table>
+  <thead class="primary">
     <tr>
       <th mat-header-cell>No</th>
       <th mat-header-cell>Name</th>
@@ -35,7 +39,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let node of selectedSites;let i=index">
-      <td mat-cell>{{ i+1 }}</td>
+      <td mat-cell class="primary">{{ i+1 }}</td>
       <td mat-cell>{{node.name}}</td>
       <td mat-cell>{{ node.siteId }}</td>
       <td mat-cell>{{ node.code }}</td>
