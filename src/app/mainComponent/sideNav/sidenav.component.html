@@ -4,7 +4,7 @@
             <mat-list-option *ngFor="let subitem of item.SubItem; let i=index" [selected]="selectedSubMenu === subitem.Order" [value]="subSideBar" routerLink={{subitem.Rout}}>{{subitem.Title}}</mat-list-option>
         </mat-selection-list>
     </mat-drawer>
-    <mat-drawer-content fxLayout="column" style="padding:2%;">
+    <mat-drawer-content fxLayout="column" style="padding:2%;background-color: #2f2f2f;">
         <router-outlet></router-outlet>
     </mat-drawer-content>
 </mat-drawer-container>
